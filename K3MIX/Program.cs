@@ -17,6 +17,7 @@ namespace K3MIX
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            CApp App = new CApp();
         }
     }
 }
