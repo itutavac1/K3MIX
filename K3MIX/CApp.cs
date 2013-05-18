@@ -53,7 +53,7 @@ namespace K3MIX
         /// 
         /// </summary>
         /// <param name="newState">Which form will be loaded</param>
-        /// <param name="Form">Where will it be loaded</param>
+        /// <param name="Form">Where it will be loaded</param>
         public void ChangeForm(State newState,ref IForm Form)
         {
             if (state == newState)

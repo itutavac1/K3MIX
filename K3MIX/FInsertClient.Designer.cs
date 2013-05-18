@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FInsertClient
+    partial class FInsertClient : IForm
     {
         /// <summary>
         /// Required designer variable.
@@ -19,6 +19,23 @@
             }
             base.Dispose(disposing);
         }
+
+        #region User created code
+
+        #region Interface implementation
+
+        void IForm.DisplayForm()
+        {
+            this.Show();
+        }
+
+        #endregion Interface implementation
+
+
+
+
+        #endregion User created code
+
 
         #region Windows Form Designer generated code
 

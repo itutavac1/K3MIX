@@ -17,7 +17,6 @@ using System.Windows.Forms;
             if (!something)
             {
                 // try again
- * saud
             }
         }
     }

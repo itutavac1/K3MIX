@@ -46,6 +46,12 @@
   <ItemGroup>
     <Compile Include="CApp.cs" />
     <Compile Include="CLogic.cs" />
+    <Compile Include="FInsertClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FInsertClient.Designer.cs">
+      <DependentUpon>FInsertClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FMenu.cs">
       <SubType>Form</SubType>
     </Compile>
