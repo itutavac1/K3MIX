@@ -38,7 +38,7 @@ namespace K3MIX
             CApp App = new CApp();
             if (!App.Init())
                 return;
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
         }
     }
 }
