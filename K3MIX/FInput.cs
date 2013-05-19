@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace K3MIX
 {
-    public partial class FInsertClient : Form
+    public partial class FInput : Form
     {
-        public FInsertClient()
+        public FInput()
         {
             InitializeComponent();
         }

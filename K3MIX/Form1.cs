@@ -15,6 +15,13 @@ namespace K3MIX
         public Form1()
         {
             InitializeComponent();
+            this.Hide();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Globals.SetUp(State.Login, ref Globals.Form);
         }
     }
 }

@@ -12,9 +12,16 @@ namespace K3MIX
 {
     public partial class FLogin : Form
     {
+        CLogic Logic;
+
         public FLogin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_MouseClick(object sender, MouseEventArgs e)
+        {
+            Logic.SignUp();
         }
     }
 }

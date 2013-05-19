@@ -22,11 +22,31 @@
 
         #region User created code
 
+        CLogic Logic;
+
         #region Interface implementation
 
         void IForm.DisplayForm()
         {
             this.Show();
+        }
+
+        bool IForm.SetLogic(CLogic tempLogic)
+        {
+            if (tempLogic == null)
+                return false;
+            Logic = tempLogic;
+            return true;
+        }
+
+        void IForm.FinishDialog()
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
+        void IForm.ContinueDialog()
+        {
+            this.DialogResult = System.Windows.Forms.DialogResult.None;
         }
 
         #endregion Interface implementation

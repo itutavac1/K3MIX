@@ -9,7 +9,7 @@ namespace K3MIX
     /// <summary>
     /// This class should contain all function that will be called from Event functions
     /// </summary>
-    public  class CLogic
+    public class CLogic
     {
         public CLogic()
         {
@@ -24,6 +24,15 @@ namespace K3MIX
         public bool Init()
         {
             return true;
+        }
+
+        public void SignUp()
+        {
+            Globals.Form.FinishDialog();
+            Globals.ChangeForm(State.Menu,ref Globals.Form);
+            Globals.Form.SetLogic(Globals.Logic);
+            //Globals.Form.ContinueDialog();
+            Globals.Form.DisplayForm();
         }
     }
 }

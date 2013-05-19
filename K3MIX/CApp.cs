@@ -13,7 +13,12 @@ namespace K3MIX
     {
         Nothing,
         Temp,
-        Login
+        Login,
+        Menu,
+        Track,
+        Input,
+        PriceList,
+        Show
     }
     /// <summary>
     /// Main class
@@ -24,12 +29,12 @@ namespace K3MIX
         State   state;
         CLogic  Logic;
         //FLogin  Login;
-        IForm   Form;
+        //IForm   Form;
         public  CApp()
         {
             state = State.Nothing;
             Logic = new  CLogic();
-            Form  = new  FLogin();
+            //Form  = new  FLogin();
             //Login = new FLogin();
         }
         ~CApp()
@@ -44,8 +49,11 @@ namespace K3MIX
         {
             if (!Logic.Init())
                 return false;
-            ChangeForm(State.Temp, ref Form);
-            Form.DisplayForm();
+            Globals.Logic = Logic;
+            //Globals.Form.ContinueDialog();
+            //ChangeForm(State.Login, ref Form);
+            //Form.SetLogic(Logic);
+            //Form.DisplayForm();
             return true;
         }
         
@@ -64,6 +72,55 @@ namespace K3MIX
                 Form = new FTemp();
             else if (state == State.Login)
                 Form = new FLogin();
+        }
+    }
+
+    public static class Globals
+    {
+        static State state;
+
+        public static IForm Form;
+
+        public static CLogic Logic;
+
+        public static void SetUp(State state, ref IForm Form)
+        {
+            Globals.ChangeForm(state, ref Form);
+            Globals.Form.SetLogic(Logic);
+            Globals.Form.DisplayForm();
+        }
+
+        public static void ChangeForm(State newState, ref IForm Form)
+        {
+            if (state == newState)
+                return;
+            state = newState;
+            Form = null;
+            if (state == State.Temp)
+            {
+                Form = new FTemp();
+            }
+            else if (state == State.Login)
+            {
+                Form = new FLogin();
+            }
+            else if (state == State.Menu)
+            {
+                Form = new FMenu();
+            }
+            else if (state == State.Input)
+            {
+                Form = new FInput();
+            }
+            else if (state == State.PriceList)
+            {
+            }
+            else if (state == State.Show)
+            {
+            }
+            else if (state == State.Track)
+            {
+            }
         }
     }
 }
