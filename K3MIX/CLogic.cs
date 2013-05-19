@@ -14,7 +14,7 @@ namespace K3MIX
         CData Data;
         public CLogic()
         {
-
+            Data = new CData();
         }
 
         ~CLogic()
@@ -24,6 +24,8 @@ namespace K3MIX
 
         public bool Init()
         {
+            if (!Data.Init())
+                return false;
             return true;
         }
 

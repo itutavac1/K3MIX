@@ -73,12 +73,15 @@ namespace K3MIX
             }
             else if (state == State.PriceList)
             {
+                Form = new FPriceList();
             }
             else if (state == State.Show)
             {
+                Form = new FShow();
             }
             else if (state == State.Track)
             {
+                Form = new FTrack();
             }
         }
     }

@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace K3MIX
 {
-    class CData
+    public class CData
     {
+        public CData()
+        {
+
+        }
+
+        ~CData()
+        {
+
+        }
+
+        public bool Init()
+        {
+            return true;
+        }
     }
 }
