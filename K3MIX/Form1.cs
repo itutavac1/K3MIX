@@ -21,7 +21,7 @@ namespace K3MIX
         private void btnStart_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Globals.SetUp(State.Login, ref Globals.Form);
+            CGlobals.SetUp(State.Login, ref CGlobals.Form);
         }
     }
 }

@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CApp.cs" />
+    <Compile Include="CGlobals.cs" />
     <Compile Include="CLogic.cs" />
     <Compile Include="FInput.cs">
       <SubType>Form</SubType>

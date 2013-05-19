@@ -11,6 +11,7 @@ namespace K3MIX
     /// </summary>
     public class CLogic
     {
+        CData Data;
         public CLogic()
         {
 
@@ -28,11 +29,11 @@ namespace K3MIX
 
         public void SignUp()
         {
-            Globals.Form.FinishDialog();
-            Globals.ChangeForm(State.Menu,ref Globals.Form);
-            Globals.Form.SetLogic(Globals.Logic);
+            CGlobals.Form.FinishDialog();
+            CGlobals.ChangeForm(State.Menu,ref CGlobals.Form);
+            CGlobals.Form.SetLogic(CGlobals.Logic);
             //Globals.Form.ContinueDialog();
-            Globals.Form.DisplayForm();
+            CGlobals.Form.DisplayForm();
         }
     }
 }
