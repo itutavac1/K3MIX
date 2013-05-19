@@ -42,6 +42,7 @@
         void IForm.FinishDialog()
         {
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
         }
 
         void IForm.ContinueDialog()
@@ -82,6 +83,7 @@
             this.btnNewClient.TabIndex = 0;
             this.btnNewClient.Text = "Unos novog klijenta";
             this.btnNewClient.UseVisualStyleBackColor = true;
+            this.btnNewClient.Click += new System.EventHandler(this.btnNewClient_Click);
             // 
             // btnTrackClients
             // 
@@ -91,6 +93,7 @@
             this.btnTrackClients.TabIndex = 1;
             this.btnTrackClients.Text = "Praćenje klijenata";
             this.btnTrackClients.UseVisualStyleBackColor = true;
+            this.btnTrackClients.Click += new System.EventHandler(this.btnTrackClients_Click);
             // 
             // btnShowClients
             // 
@@ -100,6 +103,7 @@
             this.btnShowClients.TabIndex = 2;
             this.btnShowClients.Text = "Ispis klijenata";
             this.btnShowClients.UseVisualStyleBackColor = true;
+            this.btnShowClients.Click += new System.EventHandler(this.btnShowClients_Click);
             // 
             // btnPriceList
             // 
@@ -109,6 +113,7 @@
             this.btnPriceList.TabIndex = 3;
             this.btnPriceList.Text = "Cjenik proizvoda";
             this.btnPriceList.UseVisualStyleBackColor = true;
+            this.btnPriceList.Click += new System.EventHandler(this.btnPriceList_Click);
             // 
             // btnShowPriceList
             // 

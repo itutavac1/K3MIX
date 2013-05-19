@@ -99,11 +99,26 @@
     <Compile Include="FTrack.Designer.cs">
       <DependentUpon>FTrack.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FInput.resx">
+      <DependentUpon>FInput.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FMenu.resx">
+      <DependentUpon>FMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPriceList.resx">
+      <DependentUpon>FPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FShow.resx">
+      <DependentUpon>FShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTrack.resx">
+      <DependentUpon>FTrack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

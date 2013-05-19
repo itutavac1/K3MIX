@@ -16,5 +16,29 @@ namespace K3MIX
         {
             InitializeComponent();
         }
+
+        private void btnShowClients_Click(object sender, EventArgs e)
+        {
+            CGlobals.Form.FinishDialog();
+            CGlobals.SetUp(State.Show, ref CGlobals.Form);
+        }
+
+        private void btnPriceList_Click(object sender, EventArgs e)
+        {
+            CGlobals.Form.FinishDialog();
+            CGlobals.SetUp(State.PriceList, ref CGlobals.Form);
+        }
+
+        private void btnTrackClients_Click(object sender, EventArgs e)
+        {
+            CGlobals.Form.FinishDialog();
+            CGlobals.SetUp(State.Track, ref CGlobals.Form);
+        }
+
+        private void btnNewClient_Click(object sender, EventArgs e)
+        {
+            CGlobals.Form.FinishDialog();
+            CGlobals.SetUp(State.Input, ref CGlobals.Form);
+        }
     }
 }

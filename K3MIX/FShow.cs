@@ -16,5 +16,11 @@ namespace K3MIX
         {
             InitializeComponent();
         }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            CGlobals.Form.FinishDialog();
+            CGlobals.SetUp(State.Menu, ref CGlobals.Form);
+        }
     }
 }
