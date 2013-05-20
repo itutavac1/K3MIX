@@ -12,16 +12,19 @@ namespace K3MIX
 {
     public partial class Form1 : Form
     {
+        bool started = false;
         public Form1()
         {
             InitializeComponent();
-            this.Hide();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (started)
+                return;
             this.Hide();
             CGlobals.SetUp(State.Login, ref CGlobals.Form);
+            started = true;
         }
     }
 }

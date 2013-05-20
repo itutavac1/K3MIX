@@ -73,6 +73,7 @@
             this.btnShowPriceList = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNewClient
@@ -143,11 +144,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Herbalife distribucija";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(66, 359);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(132, 23);
+            this.btnExit.TabIndex = 7;
+            this.btnExit.Text = "Izgasi aplikaciju";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // FMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSignOut);
             this.Controls.Add(this.btnShowPriceList);
@@ -155,7 +168,10 @@
             this.Controls.Add(this.btnShowClients);
             this.Controls.Add(this.btnTrackClients);
             this.Controls.Add(this.btnNewClient);
+            this.MaximumSize = new System.Drawing.Size(640, 480);
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "FMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Izbornik";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,5 +187,6 @@
         private System.Windows.Forms.Button btnShowPriceList;
         private System.Windows.Forms.Button btnSignOut;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -38,7 +38,12 @@ namespace K3MIX
         private void btnNewClient_Click(object sender, EventArgs e)
         {
             CGlobals.Form.FinishDialog();
-            CGlobals.SetUp(State.Input, ref CGlobals.Form);
+            CGlobals.SetUp(State.Input, ref CGlobals.Form); 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
