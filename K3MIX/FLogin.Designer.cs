@@ -30,11 +30,11 @@
             this.ShowDialog();
         }
 
-        bool IForm.SetLogic(CLogic tempLogic)
+        bool IForm.SetLogic(CLogic Logic)
         {
-            if (tempLogic == null)
+            if (Logic == null)
                 return false;
-            Logic = tempLogic;
+            this.Logic = Logic;
             return true;
         }
 

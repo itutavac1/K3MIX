@@ -22,8 +22,6 @@
 
         #region User created code
 
-        CLogic Logic;
-
         #region Interface implementation
 
         void IForm.DisplayForm()
@@ -31,11 +29,11 @@
             this.Show();
         }
 
-        bool IForm.SetLogic(CLogic tempLogic)
+        bool IForm.SetLogic(CLogic Logic)
         {
-            if (tempLogic == null)
+            if (Logic == null)
                 return false;
-            Logic = tempLogic;
+            this.Logic = Logic;
             return true;
         }
 

@@ -33,7 +33,8 @@ namespace K3MIX
         public static CLogic Logic;
 
         /// <summary>
-        /// Load a form, set up the Logic and display the form
+        /// Before you call this method, close the form with Form.FinishDialog(); ( Form.Close() )
+        /// SetUp will load a form, set up the Logic and display the form
         /// </summary>
         /// <param name="state">Which form will be loaded </param>
         /// <param name="Form">Where it will loaded</param>
@@ -45,7 +46,7 @@ namespace K3MIX
         }
 
         /// <summary>
-        /// 
+        /// Initialize the form
         /// </summary>
         /// <param name="newState">Which form will be loaded</param>
         /// <param name="Form">Where it will be loaded</param>

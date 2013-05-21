@@ -12,6 +12,8 @@ namespace K3MIX
 {
     public partial class FShow : Form
     {
+        CLogic Logic;
+
         public FShow()
         {
             InitializeComponent();

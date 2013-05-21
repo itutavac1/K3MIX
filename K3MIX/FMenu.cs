@@ -12,6 +12,8 @@ namespace K3MIX
 {
     public partial class FMenu : Form
     {
+        CLogic Logic;
+
         public FMenu()
         {
             InitializeComponent();

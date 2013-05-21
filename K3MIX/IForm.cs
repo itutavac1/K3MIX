@@ -16,9 +16,9 @@ namespace K3MIX
         /// Should be set before DisplayForm, because DisplayForm will show the form and lock the app
         /// So SetLogic will not be called in time
         /// </summary>
-        /// <param name="tempLogic">Logic from App object</param>
+        /// <param name="Logic">Logic from App object</param>
         /// <returns></returns>
-        bool SetLogic(CLogic tempLogic);
+        bool SetLogic(CLogic Logic);
         void FinishDialog();
         void ContinueDialog();
     }

@@ -12,6 +12,8 @@ namespace K3MIX
 {
     public partial class FPriceList : Form
     {
+        CLogic Logic;
+
         public FPriceList()
         {
             InitializeComponent();

@@ -12,6 +12,7 @@ namespace K3MIX
     public class CLogic
     {
         CData Data;
+
         public CLogic()
         {
             Data = new CData();
@@ -33,7 +34,7 @@ namespace K3MIX
         {
             CGlobals.Form.FinishDialog();
             CGlobals.ChangeForm(State.Menu,ref CGlobals.Form);
-            CGlobals.Form.SetLogic(CGlobals.Logic);
+            CGlobals.Form.SetLogic(CGlobals.Logic); // ha, provjeriti dal treba pomoću ref slati, dakle negdje u CApp mjenjati vrijednost i viditi unutar nove forme
             //Globals.Form.ContinueDialog();
             CGlobals.Form.DisplayForm();
         }

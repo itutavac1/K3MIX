@@ -12,6 +12,8 @@ namespace K3MIX
 {
     public partial class FTrack : Form
     {
+        CLogic Logic;
+        
         public FTrack()
         {
             InitializeComponent();

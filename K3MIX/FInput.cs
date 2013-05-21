@@ -12,6 +12,8 @@ namespace K3MIX
 {
     public partial class FInput : Form
     {
+        CLogic Logic;
+
         public FInput()
         {
             InitializeComponent();
