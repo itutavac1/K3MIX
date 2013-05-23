@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace K3MIX
 {
-    public partial class FMenu : Form
+    public partial class FMenu : Form, IForm
     {
         CLogic Logic;
 

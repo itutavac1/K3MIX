@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FInput : IForm
+    partial class FInput 
     {
         /// <summary>
         /// Required designer variable.

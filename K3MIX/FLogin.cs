@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace K3MIX
 {
-    public partial class FLogin : Form
+    public partial class FLogin : Form, IForm
     {
         CLogic Logic;
 

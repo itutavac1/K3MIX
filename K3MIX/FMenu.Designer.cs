@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FMenu : IForm
+    partial class FMenu 
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FTemp : IForm
+    partial class FTemp
     {
         /// <summary>
         /// Required designer variable.

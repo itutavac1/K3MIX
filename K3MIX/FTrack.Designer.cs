@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FTrack : IForm
+    partial class FTrack 
     {
         /// <summary>
         /// Required designer variable.

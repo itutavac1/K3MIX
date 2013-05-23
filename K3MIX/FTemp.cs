@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace K3MIX
 {
-    public partial class FTemp : Form
+    public partial class FTemp : Form, IForm
     {
         public FTemp()
         {

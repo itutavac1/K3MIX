@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FShow : IForm
+    partial class FShow 
     {
         /// <summary>
         /// Required designer variable.

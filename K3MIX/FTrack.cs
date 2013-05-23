@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace K3MIX
 {
-    public partial class FTrack : Form
+    public partial class FTrack : Form, IForm
     {
         CLogic Logic;
         

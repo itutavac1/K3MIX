@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FLogin : IForm
+    partial class FLogin 
     {
         /// <summary>
         /// Required designer variable.

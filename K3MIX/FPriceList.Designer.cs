@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FPriceList : IForm
+    partial class FPriceList 
     {
         /// <summary>
         /// Required designer variable.

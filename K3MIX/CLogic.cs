@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace K3MIX
 {
-    /// <summary>
-    /// This class should contain all function that will be called from Event functions
-    /// </summary>
+    /*
+        koristiti interface ILogic, i onda ga alocirati za odgovarajuću klasu, ili abstract class koji ima odgovarajuće metode 
+     */
     public class CLogic
     {
         CData Data;
