@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e2085bd1e7c4d588774693d31be74a4" Name="Diagram1" >
+        <EntityTypeShape EntityType="Model1.Status" Width="1.5" PointX="5.625" PointY="7.875" />
+        <EntityTypeShape EntityType="Model1.Dodatni_podaci_korisnika" Width="2.375" PointX="1.625" PointY="6.625" />
+        <AssociationConnector Association="Model1.Connecting_State_UserDetails" />
+        <EntityTypeShape EntityType="Model1.Dodatni_podaci_konzumenta" Width="2.375" PointX="1.625" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.Korisnici" Width="1.5" PointX="9" PointY="5" />
+        <EntityTypeShape EntityType="Model1.Pracenje_po_datumima" Width="2.375" PointX="1.625" PointY="1" />
+        <AssociationConnector Association="Model1.Connecting_UserDetails_User" />
+        <AssociationConnector Association="Model1.Connecting_ConsumerDetails_User" />
+        <AssociationConnector Association="Model1.Connecting_Track_User1" />
+        <AssociationConnector Association="Model1.Connecting_Track_User2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
