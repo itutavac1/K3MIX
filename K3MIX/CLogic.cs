@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace K3MIX
 {
-    /*
-        koristiti interface ILogic, i onda ga alocirati za odgovarajuću klasu, ili abstract class koji ima odgovarajuće metode 
-     */
     public class CLogic
     {
         CData Data;
