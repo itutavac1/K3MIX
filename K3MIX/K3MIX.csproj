@@ -73,6 +73,7 @@
     <Compile Include="Dodatni_podaci_konzumenta.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Dodatni_podaci_konzumenta1.cs" />
     <Compile Include="Dodatni_podaci_korisnika.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
