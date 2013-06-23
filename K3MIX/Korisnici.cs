@@ -16,6 +16,7 @@ namespace K3MIX
     {
         public Korisnici()
         {
+            this.Dodatni_podaci_konzumenta = new HashSet<Dodatni_podaci_konzumenta>();
             this.Dodatni_podaci_korisnika = new HashSet<Dodatni_podaci_korisnika>();
             this.Pracenje_po_datumima = new HashSet<Pracenje_po_datumima>();
             this.Pracenje_po_datumima1 = new HashSet<Pracenje_po_datumima>();
@@ -27,8 +28,8 @@ namespace K3MIX
         public string Prezime { get; set; }
         public string Email { get; set; }
     
+        public virtual ICollection<Dodatni_podaci_konzumenta> Dodatni_podaci_konzumenta { get; set; }
         public virtual ICollection<Dodatni_podaci_korisnika> Dodatni_podaci_korisnika { get; set; }
-        public virtual Dodatni_podaci_konzumenta Dodatni_podaci_konzumenta { get; set; }
         public virtual ICollection<Pracenje_po_datumima> Pracenje_po_datumima { get; set; }
         public virtual ICollection<Pracenje_po_datumima> Pracenje_po_datumima1 { get; set; }
     }

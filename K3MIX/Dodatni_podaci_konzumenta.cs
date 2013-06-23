@@ -17,6 +17,7 @@ namespace K3MIX
         public int ID_korisnik { get; set; }
         public string Opis { get; set; }
         public string Slika { get; set; }
+        public int ID_dodatni_podaci_konzumenta { get; set; }
     
         public virtual Korisnici Korisnici { get; set; }
     }

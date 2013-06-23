@@ -6,30 +6,11 @@
     <edmx:StorageModels>
     <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="Model1StoreContainer">
-          <EntitySet Name="Dodatni_podaci_konzumenta" EntityType="Model1.Store.Dodatni_podaci_konzumenta" store:Type="Tables" store:Name="Dodatni_podaci_konzumenta">
-            <DefiningQuery>SELECT 
-            [Dodatni_podaci_konzumenta].[ID_korisnik] AS [ID_korisnik], 
-            [Dodatni_podaci_konzumenta].[Opis] AS [Opis], 
-            [Dodatni_podaci_konzumenta].[Slika] AS [Slika]
-            FROM [Dodatni_podaci_konzumenta] AS [Dodatni_podaci_konzumenta]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Dodatni_podaci_korisnika" EntityType="Model1.Store.Dodatni_podaci_korisnika" store:Type="Tables" store:Name="Dodatni_podaci_korisnika">
-            <DefiningQuery>SELECT 
-            [Dodatni_podaci_korisnika].[ID_korisnik] AS [ID_korisnik], 
-            [Dodatni_podaci_korisnika].[ID_status] AS [ID_status], 
-            [Dodatni_podaci_korisnika].[Username] AS [Username], 
-            [Dodatni_podaci_korisnika].[Password] AS [Password], 
-            [Dodatni_podaci_korisnika].[OIB] AS [OIB], 
-            [Dodatni_podaci_korisnika].[Bodovi] AS [Bodovi]
-            FROM [Dodatni_podaci_korisnika] AS [Dodatni_podaci_korisnika]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Dodatni_podaci_konzumenta" EntityType="Model1.Store.Dodatni_podaci_konzumenta" store:Type="Tables" />
+          <EntitySet Name="Dodatni_podaci_korisnika" EntityType="Model1.Store.Dodatni_podaci_korisnika" store:Type="Tables" />
           <EntitySet Name="Korisnici" EntityType="Model1.Store.Korisnici" store:Type="Tables" />
           <EntitySet Name="Pracenje_po_datumima" EntityType="Model1.Store.Pracenje_po_datumima" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Model1.Store.Status" store:Type="Tables" />
-          <AssociationSet Name="Connecting_ConsumerDetails_User" Association="Model1.Store.Connecting_ConsumerDetails_User">
-            <End Role="Korisnici" EntitySet="Korisnici" />
-            <End Role="Dodatni_podaci_konzumenta" EntitySet="Dodatni_podaci_konzumenta" />
-          </AssociationSet>
           <AssociationSet Name="Connecting_State_UserDetails" Association="Model1.Store.Connecting_State_UserDetails">
             <End Role="Status" EntitySet="Status" />
             <End Role="Dodatni_podaci_korisnika" EntitySet="Dodatni_podaci_korisnika" />
@@ -46,25 +27,23 @@
             <End Role="Korisnici" EntitySet="Korisnici" />
             <End Role="Dodatni_podaci_korisnika" EntitySet="Dodatni_podaci_korisnika" />
           </AssociationSet>
+          <AssociationSet Name="Connection_ConsumerDetails_User" Association="Model1.Store.Connection_ConsumerDetails_User">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Dodatni_podaci_konzumenta" EntitySet="Dodatni_podaci_konzumenta" />
+          </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-            warning 6002: The table/view 'Dodatni_podaci_konzumenta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-            -->
         <EntityType Name="Dodatni_podaci_konzumenta">
           <Key>
-            <PropertyRef Name="ID_korisnik" />
+            <PropertyRef Name="ID_dodatni_podaci_konzumenta" />
           </Key>
           <Property Name="ID_korisnik" Type="int" Nullable="false" />
           <Property Name="Opis" Type="nvarchar" MaxLength="500" />
           <Property Name="Slika" Type="nvarchar" MaxLength="500" />
+          <Property Name="ID_dodatni_podaci_konzumenta" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-            warning 6002: The table/view 'Dodatni_podaci_korisnika' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-            -->
         <EntityType Name="Dodatni_podaci_korisnika">
           <Key>
-            <PropertyRef Name="ID_korisnik" />
-            <PropertyRef Name="ID_status" />
+            <PropertyRef Name="ID_dodatni_podaci_korisnika" />
           </Key>
           <Property Name="ID_korisnik" Type="int" Nullable="false" />
           <Property Name="ID_status" Type="int" Nullable="false" />
@@ -72,6 +51,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="100" />
           <Property Name="OIB" Type="int" />
           <Property Name="Bodovi" Type="int" />
+          <Property Name="ID_dodatni_podaci_korisnika" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Korisnici">
           <Key>
@@ -105,20 +85,6 @@
           <Property Name="ID_status" Type="int" Nullable="false" />
           <Property Name="Naziv" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="Connecting_ConsumerDetails_User">
-          <End Role="Korisnici" Type="Model1.Store.Korisnici" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Dodatni_podaci_konzumenta" Type="Model1.Store.Dodatni_podaci_konzumenta" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Korisnici">
-              <PropertyRef Name="ID_korisnik" />
-            </Principal>
-            <Dependent Role="Dodatni_podaci_konzumenta">
-              <PropertyRef Name="ID_korisnik" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="Connecting_State_UserDetails">
           <End Role="Status" Type="Model1.Store.Status" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -173,27 +139,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Connection_ConsumerDetails_User">
+          <End Role="Korisnici" Type="Model1.Store.Korisnici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Dodatni_podaci_konzumenta" Type="Model1.Store.Dodatni_podaci_konzumenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="ID_korisnik" />
+            </Principal>
+            <Dependent Role="Dodatni_podaci_konzumenta">
+              <PropertyRef Name="ID_korisnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Status" EntityType="Model1.Status" />
+          <EntitySet Name="Pracenje_po_datumima" EntityType="Model1.Pracenje_po_datumima" />
+          <EntitySet Name="Dodatni_podaci_konzumenta" EntityType="Model1.Dodatni_podaci_konzumenta" />
           <EntitySet Name="Dodatni_podaci_korisnika" EntityType="Model1.Dodatni_podaci_korisnika" />
+          <EntitySet Name="Korisnici" EntityType="Model1.Korisnici" />
+          <AssociationSet Name="Connection_ConsumerDetails_User" Association="Model1.Connection_ConsumerDetails_User">
+            <End Role="Korisnici" EntitySet="Korisnici" />
+            <End Role="Dodatni_podaci_konzumenta" EntitySet="Dodatni_podaci_konzumenta" />
+          </AssociationSet>
           <AssociationSet Name="Connecting_State_UserDetails" Association="Model1.Connecting_State_UserDetails">
             <End Role="Status" EntitySet="Status" />
             <End Role="Dodatni_podaci_korisnika" EntitySet="Dodatni_podaci_korisnika" />
           </AssociationSet>
-          <EntitySet Name="Dodatni_podaci_konzumenta" EntityType="Model1.Dodatni_podaci_konzumenta" />
-          <EntitySet Name="Korisnici" EntityType="Model1.Korisnici" />
-          <EntitySet Name="Pracenje_po_datumima" EntityType="Model1.Pracenje_po_datumima" />
           <AssociationSet Name="Connecting_UserDetails_User" Association="Model1.Connecting_UserDetails_User">
             <End Role="Korisnici" EntitySet="Korisnici" />
             <End Role="Dodatni_podaci_korisnika" EntitySet="Dodatni_podaci_korisnika" />
-          </AssociationSet>
-          <AssociationSet Name="Connecting_ConsumerDetails_User" Association="Model1.Connecting_ConsumerDetails_User">
-            <End Role="Korisnici" EntitySet="Korisnici" />
-            <End Role="Dodatni_podaci_konzumenta" EntitySet="Dodatni_podaci_konzumenta" />
           </AssociationSet>
           <AssociationSet Name="Connecting_Track_User1" Association="Model1.Connecting_Track_User1">
             <End Role="Korisnici" EntitySet="Korisnici" />
@@ -203,7 +183,7 @@
             <End Role="Korisnici" EntitySet="Korisnici" />
             <End Role="Pracenje_po_datumima" EntitySet="Pracenje_po_datumima" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="ID_status" />
@@ -211,57 +191,6 @@
           <Property Type="Int32" Name="ID_status" Nullable="false" />
           <Property Type="String" Name="Naziv" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dodatni_podaci_korisnika" Relationship="Model1.Connecting_State_UserDetails" FromRole="Status" ToRole="Dodatni_podaci_korisnika" />
-        </EntityType>
-        <EntityType Name="Dodatni_podaci_korisnika">
-          <Key>
-            <PropertyRef Name="ID_korisnik" />
-            <PropertyRef Name="ID_status" />
-          </Key>
-          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
-          <Property Type="Int32" Name="ID_status" Nullable="false" />
-          <Property Type="String" Name="Username" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="OIB" />
-          <Property Type="Int32" Name="Bodovi" />
-          <NavigationProperty Name="Status" Relationship="Model1.Connecting_State_UserDetails" FromRole="Dodatni_podaci_korisnika" ToRole="Status" />
-          <NavigationProperty Name="Korisnici" Relationship="Model1.Connecting_UserDetails_User" FromRole="Dodatni_podaci_korisnika" ToRole="Korisnici" />
-        </EntityType>
-        <Association Name="Connecting_State_UserDetails">
-          <End Type="Model1.Status" Role="Status" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Model1.Dodatni_podaci_korisnika" Role="Dodatni_podaci_korisnika" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="ID_status" />
-            </Principal>
-            <Dependent Role="Dodatni_podaci_korisnika">
-              <PropertyRef Name="ID_status" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Dodatni_podaci_konzumenta">
-          <Key>
-            <PropertyRef Name="ID_korisnik" />
-          </Key>
-          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
-          <Property Type="String" Name="Opis" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Slika" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Korisnici" Relationship="Model1.Connecting_ConsumerDetails_User" FromRole="Dodatni_podaci_konzumenta" ToRole="Korisnici" />
-        </EntityType>
-        <EntityType Name="Korisnici">
-          <Key>
-            <PropertyRef Name="ID_korisnik" />
-          </Key>
-          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
-          <Property Type="Boolean" Name="Konzument_korisnik" />
-          <Property Type="String" Name="Ime" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Prezime" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Dodatni_podaci_korisnika" Relationship="Model1.Connecting_UserDetails_User" FromRole="Korisnici" ToRole="Dodatni_podaci_korisnika" />
-          <NavigationProperty Name="Dodatni_podaci_konzumenta" Relationship="Model1.Connecting_ConsumerDetails_User" FromRole="Korisnici" ToRole="Dodatni_podaci_konzumenta" />
-          <NavigationProperty Name="Pracenje_po_datumima" Relationship="Model1.Connecting_Track_User1" FromRole="Korisnici" ToRole="Pracenje_po_datumima" />
-          <NavigationProperty Name="Pracenje_po_datumima1" Relationship="Model1.Connecting_Track_User2" FromRole="Korisnici" ToRole="Pracenje_po_datumima" />
         </EntityType>
         <EntityType Name="Pracenje_po_datumima">
           <Key>
@@ -279,7 +208,73 @@
           <Property Type="String" Name="Slika" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Korisnici" Relationship="Model1.Connecting_Track_User1" FromRole="Pracenje_po_datumima" ToRole="Korisnici" />
           <NavigationProperty Name="Korisnici1" Relationship="Model1.Connecting_Track_User2" FromRole="Pracenje_po_datumima" ToRole="Korisnici" />
+          </EntityType>
+        <EntityType Name="Dodatni_podaci_konzumenta">
+          <Key>
+            <PropertyRef Name="ID_dodatni_podaci_konzumenta" />
+          </Key>
+          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
+          <Property Type="String" Name="Opis" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Slika" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ID_dodatni_podaci_konzumenta" Nullable="false" />
+          <NavigationProperty Name="Korisnici" Relationship="Model1.Connection_ConsumerDetails_User" FromRole="Dodatni_podaci_konzumenta" ToRole="Korisnici" />
         </EntityType>
+        <EntityType Name="Dodatni_podaci_korisnika">
+          <Key>
+            <PropertyRef Name="ID_dodatni_podaci_korisnika" />
+          </Key>
+          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
+          <Property Type="Int32" Name="ID_status" Nullable="false" />
+          <Property Type="String" Name="Username" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="OIB" />
+          <Property Type="Int32" Name="Bodovi" />
+          <Property Type="Int32" Name="ID_dodatni_podaci_korisnika" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="Model1.Connecting_State_UserDetails" FromRole="Dodatni_podaci_korisnika" ToRole="Status" />
+          <NavigationProperty Name="Korisnici" Relationship="Model1.Connecting_UserDetails_User" FromRole="Dodatni_podaci_korisnika" ToRole="Korisnici" />
+        </EntityType>
+        <EntityType Name="Korisnici">
+          <Key>
+            <PropertyRef Name="ID_korisnik" />
+          </Key>
+          <Property Type="Int32" Name="ID_korisnik" Nullable="false" />
+          <Property Type="Boolean" Name="Konzument_korisnik" />
+          <Property Type="String" Name="Ime" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Prezime" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dodatni_podaci_konzumenta" Relationship="Model1.Connection_ConsumerDetails_User" FromRole="Korisnici" ToRole="Dodatni_podaci_konzumenta" />
+          <NavigationProperty Name="Dodatni_podaci_korisnika" Relationship="Model1.Connecting_UserDetails_User" FromRole="Korisnici" ToRole="Dodatni_podaci_korisnika" />
+          <NavigationProperty Name="Pracenje_po_datumima" Relationship="Model1.Connecting_Track_User1" FromRole="Korisnici" ToRole="Pracenje_po_datumima" />
+          <NavigationProperty Name="Pracenje_po_datumima1" Relationship="Model1.Connecting_Track_User2" FromRole="Korisnici" ToRole="Pracenje_po_datumima" />
+        </EntityType>
+        <Association Name="Connection_ConsumerDetails_User">
+          <End Type="Model1.Korisnici" Role="Korisnici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Dodatni_podaci_konzumenta" Role="Dodatni_podaci_konzumenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Korisnici">
+              <PropertyRef Name="ID_korisnik" />
+            </Principal>
+            <Dependent Role="Dodatni_podaci_konzumenta">
+              <PropertyRef Name="ID_korisnik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Connecting_State_UserDetails">
+          <End Type="Model1.Status" Role="Status" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Dodatni_podaci_korisnika" Role="Dodatni_podaci_korisnika" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="ID_status" />
+            </Principal>
+            <Dependent Role="Dodatni_podaci_korisnika">
+              <PropertyRef Name="ID_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="Connecting_UserDetails_User">
           <End Type="Model1.Korisnici" Role="Korisnici" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -290,20 +285,6 @@
               <PropertyRef Name="ID_korisnik" />
             </Principal>
             <Dependent Role="Dodatni_podaci_korisnika">
-              <PropertyRef Name="ID_korisnik" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Connecting_ConsumerDetails_User">
-          <End Type="Model1.Korisnici" Role="Korisnici" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="Model1.Dodatni_podaci_konzumenta" Role="Dodatni_podaci_konzumenta" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Korisnici">
-              <PropertyRef Name="ID_korisnik" />
-            </Principal>
-            <Dependent Role="Dodatni_podaci_konzumenta">
               <PropertyRef Name="ID_korisnik" />
             </Dependent>
           </ReferentialConstraint>
@@ -334,7 +315,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -347,38 +328,6 @@
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
                 <ScalarProperty Name="ID_status" ColumnName="ID_status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dodatni_podaci_korisnika">
-            <EntityTypeMapping TypeName="Model1.Dodatni_podaci_korisnika">
-              <MappingFragment StoreEntitySet="Dodatni_podaci_korisnika">
-                <ScalarProperty Name="Bodovi" ColumnName="Bodovi" />
-                <ScalarProperty Name="OIB" ColumnName="OIB" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="ID_status" ColumnName="ID_status" />
-                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dodatni_podaci_konzumenta">
-            <EntityTypeMapping TypeName="Model1.Dodatni_podaci_konzumenta">
-              <MappingFragment StoreEntitySet="Dodatni_podaci_konzumenta">
-                <ScalarProperty Name="Slika" ColumnName="Slika" />
-                <ScalarProperty Name="Opis" ColumnName="Opis" />
-                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Korisnici">
-            <EntityTypeMapping TypeName="Model1.Korisnici">
-              <MappingFragment StoreEntitySet="Korisnici">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
-                <ScalarProperty Name="Ime" ColumnName="Ime" />
-                <ScalarProperty Name="Konzument_korisnik" ColumnName="Konzument_korisnik" />
-                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -395,6 +344,40 @@
                 <ScalarProperty Name="ID_konzument" ColumnName="ID_konzument" />
                 <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
                 <ScalarProperty Name="ID_pracenje_po_datumu" ColumnName="ID_pracenje_po_datumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dodatni_podaci_konzumenta">
+            <EntityTypeMapping TypeName="Model1.Dodatni_podaci_konzumenta">
+              <MappingFragment StoreEntitySet="Dodatni_podaci_konzumenta">
+                <ScalarProperty Name="ID_dodatni_podaci_konzumenta" ColumnName="ID_dodatni_podaci_konzumenta" />
+                <ScalarProperty Name="Slika" ColumnName="Slika" />
+                <ScalarProperty Name="Opis" ColumnName="Opis" />
+                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dodatni_podaci_korisnika">
+            <EntityTypeMapping TypeName="Model1.Dodatni_podaci_korisnika">
+              <MappingFragment StoreEntitySet="Dodatni_podaci_korisnika">
+                <ScalarProperty Name="ID_dodatni_podaci_korisnika" ColumnName="ID_dodatni_podaci_korisnika" />
+                <ScalarProperty Name="Bodovi" ColumnName="Bodovi" />
+                <ScalarProperty Name="OIB" ColumnName="OIB" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID_status" ColumnName="ID_status" />
+                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Korisnici">
+            <EntityTypeMapping TypeName="Model1.Korisnici">
+              <MappingFragment StoreEntitySet="Korisnici">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Konzument_korisnik" ColumnName="Konzument_korisnik" />
+                <ScalarProperty Name="ID_korisnik" ColumnName="ID_korisnik" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

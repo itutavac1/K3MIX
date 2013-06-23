@@ -26,9 +26,9 @@ namespace K3MIX
         }
     
         public DbSet<Status> Status { get; set; }
-        public DbSet<Dodatni_podaci_korisnika> Dodatni_podaci_korisnika { get; set; }
-        public DbSet<Dodatni_podaci_konzumenta> Dodatni_podaci_konzumenta { get; set; }
-        public DbSet<Korisnici> Korisnici { get; set; }
         public DbSet<Pracenje_po_datumima> Pracenje_po_datumima { get; set; }
+        public DbSet<Dodatni_podaci_konzumenta> Dodatni_podaci_konzumenta { get; set; }
+        public DbSet<Dodatni_podaci_korisnika> Dodatni_podaci_korisnika { get; set; }
+        public DbSet<Korisnici> Korisnici { get; set; }
     }
 }

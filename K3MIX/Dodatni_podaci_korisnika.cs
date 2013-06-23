@@ -20,6 +20,7 @@ namespace K3MIX
         public string Password { get; set; }
         public Nullable<int> OIB { get; set; }
         public Nullable<int> Bodovi { get; set; }
+        public int ID_dodatni_podaci_korisnika { get; set; }
     
         public virtual Status Status { get; set; }
         public virtual Korisnici Korisnici { get; set; }
