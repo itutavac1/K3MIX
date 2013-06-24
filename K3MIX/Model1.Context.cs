@@ -30,5 +30,11 @@ namespace K3MIX
         public DbSet<Dodatni_podaci_konzumenta> Dodatni_podaci_konzumenta { get; set; }
         public DbSet<Dodatni_podaci_korisnika> Dodatni_podaci_korisnika { get; set; }
         public DbSet<Korisnici> Korisnici { get; set; }
+        public DbSet<Narudzbe_racuni> Narudzbe_racuni { get; set; }
+        public DbSet<Artikli_kategorija> Artikli_kategorija { get; set; }
+        public DbSet<Artikli_podkategorija> Artikli_podkategorija { get; set; }
+        public DbSet<Artikli> Artikli { get; set; }
+        public DbSet<Mjerne_jedinice> Mjerne_jedinice { get; set; }
+        public DbSet<Stavke_narudzbe_racuna> Stavke_narudzbe_racuna { get; set; }
     }
 }

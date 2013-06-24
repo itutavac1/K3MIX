@@ -20,6 +20,8 @@ namespace K3MIX
             this.Dodatni_podaci_korisnika = new HashSet<Dodatni_podaci_korisnika>();
             this.Pracenje_po_datumima = new HashSet<Pracenje_po_datumima>();
             this.Pracenje_po_datumima1 = new HashSet<Pracenje_po_datumima>();
+            this.Narudzbe_racuni = new HashSet<Narudzbe_racuni>();
+            this.Narudzbe_racuni1 = new HashSet<Narudzbe_racuni>();
         }
     
         public int ID_korisnik { get; set; }
@@ -32,5 +34,7 @@ namespace K3MIX
         public virtual ICollection<Dodatni_podaci_korisnika> Dodatni_podaci_korisnika { get; set; }
         public virtual ICollection<Pracenje_po_datumima> Pracenje_po_datumima { get; set; }
         public virtual ICollection<Pracenje_po_datumima> Pracenje_po_datumima1 { get; set; }
+        public virtual ICollection<Narudzbe_racuni> Narudzbe_racuni { get; set; }
+        public virtual ICollection<Narudzbe_racuni> Narudzbe_racuni1 { get; set; }
     }
 }
