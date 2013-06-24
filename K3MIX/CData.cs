@@ -22,5 +22,10 @@ namespace K3MIX
         {
             return true;
         }
+
+        public void CreateNewUser()
+        {
+
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace K3MIX
         Menu,
         Track,
         Input,
+        Register,
         PriceList,
         Show
     }
@@ -83,6 +84,10 @@ namespace K3MIX
             else if (state == State.Track)
             {
                 Form = new FTrack();
+            }
+            else if (state == State.Register)
+            {
+                Form = new FRegister();
             }
         }
     }
