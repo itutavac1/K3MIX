@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace K3MIX
+namespace Herba
 {
     static class Program
     {
@@ -16,7 +16,6 @@ namespace K3MIX
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
             Application.Run(new frmLogin());
         }
     }
