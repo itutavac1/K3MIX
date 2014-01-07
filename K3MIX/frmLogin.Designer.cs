@@ -1,6 +1,6 @@
 ﻿namespace K3MIX
 {
-    partial class FTemp
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FormTemp";
+            this.Text = "frmLogin";
         }
 
         #endregion

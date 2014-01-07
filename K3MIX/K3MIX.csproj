@@ -50,6 +50,12 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>.\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>.\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,141 +72,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Artikli.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Artikli_kategorija.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Artikli_podkategorija.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CApp.cs" />
-    <Compile Include="CData.cs" />
-    <Compile Include="CGlobals.cs" />
-    <Compile Include="CLogic.cs" />
-    <Compile Include="CUser.cs" />
-    <Compile Include="FRegister.cs">
+    <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRegister.Designer.cs">
-      <DependentUpon>FRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dodatni_podaci_konzumenta.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Dodatni_podaci_korisnika.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FInput.Designer.cs">
-      <DependentUpon>FInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FMenu.Designer.cs">
-      <DependentUpon>FMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FLogin.Designer.cs">
-      <DependentUpon>FLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FShow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FShow.Designer.cs">
-      <DependentUpon>FShow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FTemp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FTemp.Designer.cs">
-      <DependentUpon>FTemp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="IForm.cs" />
-    <Compile Include="FPriceList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FPriceList.Designer.cs">
-      <DependentUpon>FPriceList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Korisnici.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Korisnici1.cs" />
-    <Compile Include="Mjerne_jedinice.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Narudzbe_racuni.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pracenje_po_datumima.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FTrack.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FTrack.Designer.cs">
-      <DependentUpon>FTrack.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Status.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Stavke_narudzbe_racuna.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="FRegister.resx">
-      <DependentUpon>FRegister.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FInput.resx">
-      <DependentUpon>FInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FLogin.resx">
-      <DependentUpon>FLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FMenu.resx">
-      <DependentUpon>FMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FPriceList.resx">
-      <DependentUpon>FPriceList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FShow.resx">
-      <DependentUpon>FShow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FTrack.resx">
-      <DependentUpon>FTrack.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -210,23 +89,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
-    <None Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -240,11 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="PIDatabase.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
