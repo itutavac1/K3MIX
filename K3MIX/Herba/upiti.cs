@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Npgsql;
 
 namespace Herba
-{
+{//RADI
     class upiti
     {
         public static string id = "1";
